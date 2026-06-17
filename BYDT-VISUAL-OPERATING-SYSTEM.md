@@ -1,1 +1,1 @@
-the strategy doc
+full MD from history
