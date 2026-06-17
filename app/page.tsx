@@ -18,41 +18,35 @@ const item = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0 },
 };
-
 export default function Home() {
   return (
     <>
       <Navbar />
 
-      {/* HERO */}
-      <section className="max-w-5xl mx-auto px-6 pt-20 pb-20 text-center">
-        <div className="mx-auto max-w-4xl">
-          <div className="inline-block uppercase tracking-[4px] text-xs font-mono text-gold mb-4">
-            BUILD YOUR DREAMING THINGS
-          </div>
+      {/* HERO - featuring the beautiful hand-drawn book cover */}
+      <section className="max-w-5xl mx-auto px-6 pt-10 pb-10 text-center">
+        <img 
+          src="/images/build-your-dreaming-things-cover.jpg" 
+          alt="Build Your Dreaming Things book cover - hand-drawn illustration of a joyful child on a red rocket in deep space, surrounded by golden stars. Perfect child's perspective, hand-drawn dream style." 
+          className="mx-auto w-full max-w-lg h-auto rounded-2xl shadow-2xl border border-gold/20 mb-8" 
+        />
 
-          <h1 className="mb-6 leading-none">
-            We help children<br />turn imagination into evidence.
-          </h1>
+        <p className="max-w-2xl mx-auto text-xl text-text-secondary mb-10">
+          We help children turn imagination into evidence.
+        </p>
 
-          <p className="max-w-2xl mx-auto text-xl text-text-secondary mb-10">
-            BYDT creates hands-on WonderLabs, creative tools, printable experiences, 
-            prototypes, and interactive activities that help children see their ideas become real.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn btn-primary text-base px-8">
-              Book a WonderLab
-            </Link>
-            <Link href="/contact" className="btn btn-secondary text-base px-8">
-              Bring BYDT to Your Event
-            </Link>
-          </div>
-
-          <p className="mt-10 text-sm tracking-wide text-text-secondary">
-            Honor their experiences. Protect their wonder.
-          </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link href="/contact" className="btn btn-primary text-base px-8">
+            Book a WonderLab
+          </Link>
+          <Link href="/contact" className="btn btn-secondary text-base px-8">
+            Bring BYDT to Your Event
+          </Link>
         </div>
+
+        <p className="mt-10 text-sm tracking-wide text-text-secondary">
+          Honor their experiences. Protect their wonder.
+        </p>
       </section>
 
       {/* THE RECOGNITION GAP — THE STEEL BEAM */}
