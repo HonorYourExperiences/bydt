@@ -1,26 +1,241 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* ============================================
+   BYDT Design System — Warm, serious, alive
+   Cathedral for children’s possibility
+   ============================================ */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+:root {
+  /* Core Palette */
+  --color-cream: #F8F4ED;
+  --color-navy: #0A162F;
+  --color-gold: #BFA16B;
+  --color-sky: #7BA3C9;
+
+  /* Surfaces & Text */
+  --color-surface: #FFFFFF;
+  --color-text: #0A162F;
+  --color-text-secondary: #3F4E6B;
+  --color-border: #D8D0C3;
+
+  /* Fonts */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Theme tokens for Tailwind */
+@theme inline {
+  --color-cream: var(--color-cream);
+  --color-navy: var(--color-navy);
+  --color-gold: var(--color-gold);
+  --color-sky: var(--color-sky);
+  --color-surface: var(--color-surface);
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-playfair);
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  color: var(--color-navy);
+  background: var(--color-cream);
+}
+
+/* Typography */
+h1, h2, .display {
+  font-family: var(--font-display);
+  font-feature-settings: "tnum" 1;
+}
+
+h1 {
+  font-size: 3.25rem;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+/* The Steel Beam — special treatment */
+.steel-beam {
+  font-family: var(--font-display);
+  font-size: 1.875rem;
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Buttons — Production quality, not generic */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  padding: 0.875rem 1.75rem;
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.23, 1.0, 0.32, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-gold);
+  color: var(--color-navy);
+  border: 1px solid var(--color-gold);
+}
+
+.btn-primary:hover {
+  background: #A98D58;
+  border-color: #A98D58;
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1px solid var(--color-navy);
+}
+
+.btn-secondary:hover {
+  background: var(--color-navy);
+  color: var(--color-cream);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-navy);
+  background: rgba(10, 22, 47, 0.04);
+}
+
+/* Cards & Surfaces */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  transition: transform 0.2s cubic-bezier(0.23, 1.0, 0.32, 1), 
+              box-shadow 0.2s cubic-bezier(0.23, 1.0, 0.32, 1),
+              border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+  border-color: #C9BFAF;
+}
+
+/* Method step numbers */
+.step-number {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+/* Nav */
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-gold);
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+/* Section spacing */
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.875rem; }
+}
+
+/* Form styles */
+input, textarea, select {
+  font-family: var(--font-sans);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-navy);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(191, 161, 107, 0.1);
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.375rem;
+  display: block;
+}
+
+/* Subtle life */
+.evidence {
+  font-style: italic;
+  color: var(--color-text-secondary);
 }
