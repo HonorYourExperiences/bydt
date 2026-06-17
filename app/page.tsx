@@ -1,1 +1,1 @@
-the full updated local page.tsx with blueprint and fallback
+[updated with class]
