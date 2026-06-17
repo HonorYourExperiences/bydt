@@ -1,4 +1,4 @@
-use client";
+"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -297,7 +297,7 @@ export default function Home() {
               { title: "Cape-Able Heroes", desc: "Children discover and declare their own heroic capability — not through fiction, but through recognizing what they actually do and are." },
               { title: "Custom Experiences", desc: "Tailored WonderLabs, 3D printed prototypes, event activities, and meaning-making tools for camps, schools, and special programs." },
             ].map((offering, i) => (
-              <div key={i} className="card p-9 group">
+              <div key={i} className="card p-9 group blueprint">
                 <h3 className="mb-4 group-hover:text-gold transition-colors">{offering.title}</h3>
                 <p className="text-text-secondary mb-6">{offering.desc}</p>
                 <Link href="/wonderlabs" className="inline-flex items-center gap-1 text-sm font-semibold text-gold">
