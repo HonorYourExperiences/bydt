@@ -7,8 +7,8 @@ interface HudProps {
   progress?: number;
   depth?: string;
   temp?: string;
-  threatLevel?: string;
-  activeJourney?: string;
+  threatLevel?: string; // playful "Spark Intensity"
+  activeJourney?: string | null; // to highlight parts of the viewer
 }
 
 export default function Hud({
@@ -22,9 +22,9 @@ export default function Hud({
   return (
     <div className="hud-container opacity-95 pointer-events-none fixed top-20 right-6 z-40 text-right font-mono text-[10px] tracking-[1.5px] text-[#94E6FB] select-none">
       <div className="hud bg-[rgba(10,22,47,0.8)] border border-[#94E6FB]/40 px-3 py-2.5 rounded-sm backdrop-blur-md">
-        <p className="t-body t-lh-1 t-500 t-11 t-ls-0.1 t-uppercase mb-0.5 text-[#C5BBAE]">{location}</p>
+        <p className="t-body t-lh-1 t-500 t-11 t-ls-0.1 t-uppercase mb-1 text-[#C5BBAE]">{location}</p>
         
-        <p className="t-body t-lh-1 t-500 t-8 t-ls-0.2 t-uppercase mb-1">
+        <p className="t-body t-lh-1 t-500 t-8 t-ls-0.2 t-uppercase mb-2">
           DISCOVERY PROGRESS: <span className="font-semibold text-white">{Math.floor(progress)}%</span>
         </p>
 
@@ -38,11 +38,13 @@ export default function Hud({
           </div>
         </div>
 
+        {/* Mini "constellation viewer" SVG – reacts to the active journey like the reference globe */}
         <div className="mt-1 flex justify-end">
           <svg width="68" height="42" viewBox="0 0 68 42" className="opacity-80">
             <circle cx="34" cy="21" r="18" fill="none" stroke="#1f3a5f" strokeWidth="1" />
             <circle cx="34" cy="21" r="18" fill="none" stroke="#94E6FB" strokeWidth="0.8" strokeDasharray="2 3" />
             
+            {/* Constellation dots and lines – hand-sketched feel */}
             <g className={activeJourney === 'constellations' ? 'text-[#BFA16B]' : 'text-[#94E6FB]/70'}>
               <circle cx="22" cy="12" r="1.5" fill="currentColor" />
               <circle cx="30" cy="8" r="1.2" fill="currentColor" />
@@ -53,6 +55,7 @@ export default function Hud({
               <line x1="46" y1="14" x2="38" y2="28" stroke="currentColor" strokeWidth="0.7" />
             </g>
 
+            {/* Extra motion for heroes journey */}
             {activeJourney === 'heroes' && (
               <g className="text-[#BFA16B]">
                 <circle cx="18" cy="25" r="1" fill="currentColor" />
@@ -61,6 +64,7 @@ export default function Hud({
               </g>
             )}
 
+            {/* Soft nebula glow for the nebula journey */}
             {activeJourney === 'nebula' && (
               <circle cx="34" cy="21" r="12" fill="#7BA3C9" fillOpacity="0.15" />
             )}

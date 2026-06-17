@@ -1,14 +1,14 @@
 "use client";
 
 import React from 'react';
-import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 
 export interface JourneyData {
   id: string;
   title: string;
   subtitle: string;
-  image: string;
+  image: string; // path to hand-drawn image
   description: string;
   spotlight: string;
   stats: Array<{ icon?: string; text: string }>;
@@ -36,6 +36,7 @@ export default function JourneyModal({ isOpen, onClose, journey }: Props) {
             className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-cream text-navy shadow-2xl border border-border"
             onClick={e => e.stopPropagation()}
           >
+            {/* Close */}
             <button
               onClick={onClose}
               className="absolute right-5 top-5 z-50 text-gold hover:text-navy text-3xl leading-none"
@@ -45,6 +46,7 @@ export default function JourneyModal({ isOpen, onClose, journey }: Props) {
             </button>
 
             <div className="flex flex-col lg:flex-row">
+              {/* Image side – hand-drawn child's view (use the beautiful generated images) */}
               <div className="lg:w-5/12 relative bg-navy/5">
                 <img
                   src={journey.image}
@@ -52,9 +54,11 @@ export default function JourneyModal({ isOpen, onClose, journey }: Props) {
                   className="w-full h-full object-cover lg:rounded-l-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-navy/20 to-transparent lg:hidden" />
+                {/* Small "child's hand" label for the theme */}
                 <div className="absolute bottom-4 left-4 bg-navy/70 text-gold text-[10px] px-2 py-0.5 rounded tracking-widest">FROM MY HANDS</div>
               </div>
 
+              {/* Content – modeled after the reference's rich spotlight */}
               <div className="lg:w-7/12 p-6 lg:p-8">
                 <div className="mb-5">
                   <span className="uppercase tracking-[3px] text-xs text-gold font-mono">PROJECT SPOTLIGHT</span>
@@ -69,6 +73,7 @@ export default function JourneyModal({ isOpen, onClose, journey }: Props) {
                   <p className="mt-3">{journey.spotlight}</p>
                 </div>
 
+                {/* Key Statistics – with simple icons for the hand-drawn feel */}
                 {journey.stats.length > 0 && (
                   <div className="mb-6">
                     <h4 className="uppercase text-xs tracking-[2px] text-gold font-mono mb-3">KEY EVIDENCE</h4>
@@ -83,6 +88,7 @@ export default function JourneyModal({ isOpen, onClose, journey }: Props) {
                   </div>
                 )}
 
+                {/* Key Links */}
                 {journey.links.length > 0 && (
                   <div>
                     <h4 className="uppercase text-xs tracking-[2px] text-gold font-mono mb-2">FLOAT DEEPER</h4>

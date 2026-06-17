@@ -20,6 +20,8 @@ interface Floaty {
 }
 
 export default function StarfieldCanvas({ activeJourney }: { activeJourney?: string }) {
+  // activeJourney can be 'constellations' | 'heroes' | 'nebula' to change the "current"
+  // We modulate the "dream field" – density, connections, and "current" lines that feel like hand-drawn threads in space.
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
   const floatiesRef = useRef<Floaty[]>([]);
@@ -39,6 +41,7 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
     resize();
     window.addEventListener('resize', resize);
 
+    // Initialize stars (hand-drawn feel: soft, varied)
     const initStars = () => {
       starsRef.current = [];
       for (let i = 0; i < 180; i++) {
@@ -52,6 +55,7 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
       }
     };
 
+    // Child's hand-drawn "floaties" (paper planes, small prototypes, wonder cards as simple shapes)
     const initFloaties = () => {
       floatiesRef.current = [];
       const count = activeJourney ? 12 : 7;
@@ -75,12 +79,14 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
     const draw = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Subtle deep space gradient background
       const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
       grad.addColorStop(0, 'rgba(10, 22, 47, 0.65)');
       grad.addColorStop(1, 'rgba(5, 12, 28, 0.85)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+      // Twinkling stars (child's sketchy dots)
       ctx.fillStyle = '#C5BBAE';
       starsRef.current.forEach((star, i) => {
         ctx.globalAlpha = star.alpha * (0.7 + Math.sin(time * 2 + i) * 0.3);
@@ -88,11 +94,13 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
 
+        // Gentle drift
         star.y += star.speed;
         if (star.y > canvas.height) star.y = 0;
         star.x += Math.sin(time * 0.3 + i) * 0.2;
       });
 
+      // Floating hand-drawn elements (simple geometric "child drawings" in space)
       ctx.strokeStyle = '#BFA16B';
       ctx.fillStyle = '#7BA3C9';
       ctx.lineWidth = 1.2;
@@ -104,6 +112,7 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
         ctx.rotate(f.rotation + Math.sin(time * 0.6 + i) * 0.15);
 
         if (f.type === 'plane') {
+          // Paper plane shape (child's drawing)
           ctx.beginPath();
           ctx.moveTo(-f.size * 0.7, 0);
           ctx.lineTo(f.size * 0.6, -f.size * 0.35);
@@ -116,6 +125,7 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
           ctx.lineTo(-f.size * 0.3, 0);
           ctx.stroke();
         } else if (f.type === 'proto') {
+          // Small 3D-prototype / block (cube sketch)
           ctx.strokeRect(-f.size * 0.4, -f.size * 0.4, f.size * 0.8, f.size * 0.8);
           ctx.beginPath();
           ctx.moveTo(-f.size * 0.4, -f.size * 0.4);
@@ -128,6 +138,7 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
           ctx.lineTo(f.size * 0.6, -f.size * 0.6);
           ctx.stroke();
         } else {
+          // WonderCard rectangle with "scribble"
           ctx.strokeRect(-f.size * 0.55, -f.size * 0.4, f.size * 1.1, f.size * 0.8);
           ctx.beginPath();
           ctx.moveTo(-f.size * 0.3, -f.size * 0.15);
@@ -139,15 +150,19 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
 
         ctx.restore();
 
+        // Slow float + gentle "orbit"
         f.x += Math.cos(time * 0.4 + i) * 0.35;
         f.y += Math.sin(time * 0.25 + i * 0.7) * 0.25 + 0.08;
         f.rotation += 0.003;
 
+        // Wrap around
         if (f.x < -20) f.x = canvas.width + 20;
         if (f.x > canvas.width + 20) f.x = -20;
         if (f.y > canvas.height * 0.92) f.y = 30;
       });
 
+      // "Currents" - hand-drawn style connecting lines and enhanced particles when a journey is active
+      // These feel like threads of imagination pulling the child through space
       if (activeJourney) {
         const cx = canvas.width / 2;
         const cy = canvas.height * 0.55;
@@ -157,10 +172,11 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
 
         let angle = 0;
         let density = 3;
-        if (activeJourney === 'constellations') { angle = -0.9; density = 5; }
-        else if (activeJourney === 'heroes') { angle = 0.15; density = 3; }
-        else if (activeJourney === 'nebula') { angle = 1.2; density = 4; }
+        if (activeJourney === 'constellations') { angle = -0.9; density = 5; } // more connections for stars
+        else if (activeJourney === 'heroes') { angle = 0.15; density = 3; } // motion lines
+        else if (activeJourney === 'nebula') { angle = 1.2; density = 4; } // soft flows
 
+        // Multiple sketchy hand-drawn current lines
         for (let k = 0; k < density; k++) {
           ctx.beginPath();
           const jitter = (k - Math.floor(density/2)) * 5;
@@ -175,10 +191,12 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
           ctx.stroke();
         }
 
+        // Small hand-drawn "child dreamer" at the center, being pulled into the current
         ctx.fillStyle = '#94E6FB';
         ctx.beginPath();
         ctx.arc(cx, cy, 5 + Math.sin(time * 4) * 1.2, 0, Math.PI * 2);
         ctx.fill();
+        // tiny "hand" scribble
         ctx.strokeStyle = '#BFA16B';
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -194,6 +212,7 @@ export default function StarfieldCanvas({ activeJourney }: { activeJourney?: str
 
     draw();
 
+    // Gentle interaction: mouse moves "currents"
     const handleMouse = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       const mx = e.clientX - rect.left;

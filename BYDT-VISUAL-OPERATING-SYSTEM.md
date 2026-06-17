@@ -105,7 +105,7 @@ These make BYDT feel real *before* anyone reads a paragraph:
 
 ## Website as stage (current state)
 
-The Next.js site (app router, Tailwind 4, Framer Motion, custom 2D StarfieldCanvas with journey-specific currents/floaties, reactive HUD SVG, custom loader, BreathingStar, rich JourneyModal with "FROM MY HANDS" + Key Evidence ✗, WebAudio space hum) is deliberately built as the **immersive stage** once the visual world exists.
+The Next.js site (app router, Tailwind 4, Framer Motion, custom 2D StarfieldCanvas with journey-specific currents/floaties, reactive HUD SVG, custom loader, BreathingStar, rich JourneyModal with "FROM MY HANDS" + Key Evidence ✧, WebAudio space hum) is deliberately built as the **immersive stage** once the visual world exists.
 
 - Homepage hero now points at matching hand-drawn asset (update with your exact cover when placed).
 - /journeys is the deep "The Dreams We Breathe" experience (no generic nav, custom header, selectable currents, modals as proof-object spotlights).
