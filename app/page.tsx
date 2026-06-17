@@ -265,12 +265,6 @@ export default function Home() {
           <Link href="/wonderlabs" className="btn btn-primary inline-flex text-base px-9">
             Float Deeper Into the WonderLabs
           </Link>
-
-          <div className="mt-6">
-            <Link href="/journeys" className="text-sm tracking-widest text-gold hover:underline inline-flex items-center gap-1">
-              Or begin the full Journeys experience →
-            </Link>
-          </div>
         </div>
       </section>
 
