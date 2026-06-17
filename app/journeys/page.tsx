@@ -357,4 +357,4 @@ function BreathingStar() {
   );
 }
 
-// Note: StarfieldCanvas, Hud, JourneyModal are assumed to be in components/ as per previous. For full, push them too if not present.
+// Note: For full functionality, ensure components/StarfieldCanvas.tsx, components/Hud.tsx, components/JourneyModal.tsx are present (push them if not). The images should be in public/images/.
