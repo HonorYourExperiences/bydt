@@ -1,1 +1,1 @@
-the placeholder content we just wrote
+[the placeholder we wrote]

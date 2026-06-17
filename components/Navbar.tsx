@@ -1,1 +1,1 @@
-the current navbar
+[current navbar without journeys]

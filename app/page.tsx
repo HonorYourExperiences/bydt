@@ -1,1 +1,1 @@
-the full current page.tsx content from the read
+[full content of the current local app/page.tsx with the hero, visual language section, etc.]
