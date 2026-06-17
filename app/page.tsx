@@ -1,1 +1,1 @@
-[full content of the current local app/page.tsx with the hero, visual language section, etc.]
+[Use the full current local content with the onError fallback added]
