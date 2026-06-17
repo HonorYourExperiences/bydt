@@ -1,1 +1,1 @@
-[Use the full updated README content]
+updated README with deployment instructions

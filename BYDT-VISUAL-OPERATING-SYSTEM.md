@@ -1,1 +1,1 @@
-the full MD content from the read
+the strategy doc

@@ -1,1 +1,1 @@
-[the placeholder with blueprint class]
+the disabled placeholder with blueprint class
