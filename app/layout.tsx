@@ -23,7 +23,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://buildyourdreamingthings.com"),
+  metadataBase: new URL("https://bydt.org"),
   title: "Build Your Dreaming Things | Turn Imagination into Evidence",
   description: "BYDT helps children turn imagination into evidence. We create hands-on WonderLabs, creative tools, prototypes, and meaning-making experiences for parents, camps, schools, and presenters who want children to leave more certain of themselves than when they arrived.",
   icons: {
