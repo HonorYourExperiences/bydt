@@ -30,7 +30,7 @@ export default function ForPrograms() {
               text: "Camps, schools, libraries, and community spaces can offer BYDT as an enrichment experience that sends children home with something real they know about themselves.",
             },
           ].map((section, i) => (
-            <div key={i} className="border-l-4 border-gold pl-8">
+            <div key={i} className="border-l-4 border-gold pl-8 blueprint">
               <h3 className="mb-3 text-gold">{section.who}</h3>
               <p className="text-lg text-text-secondary">{section.text}</p>
             </div>
