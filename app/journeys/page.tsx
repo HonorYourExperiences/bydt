@@ -1,1 +1,1 @@
-[the placeholder we wrote]
+[the placeholder with blueprint class]
