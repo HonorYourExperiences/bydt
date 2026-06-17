@@ -32,7 +32,7 @@ export default function Contact() {
 
   const onSubmit = async (data: FormData) => {
     // Simulate sending — in production this would be a server action or API route
-    await new Promise((resolve) => setTimeout(resolve, 650));
+    await new Promise((resolve) => setTimeout((resolve), 650));
 
     console.log("Inquiry submitted:", data);
 
@@ -56,7 +56,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 blueprint p-8 rounded-2xl border border-border bg-surface">
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="name">Your name</label>
@@ -88,7 +88,7 @@ export default function Contact() {
           </div>
 
           <div>
-            <label htmlFor="message">Tell us about the children you serve and what you're hoping to create</label>
+            <label htmlFor="message">Tell us about the children you serve and what you&apos;re hoping to create</label>
             <textarea
               id="message"
               rows={7}

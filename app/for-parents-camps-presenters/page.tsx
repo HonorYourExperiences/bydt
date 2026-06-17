@@ -15,9 +15,8 @@ export default function ForPrograms() {
           </p>
         </div>
 
-        <div className="space-y-12">
-          {[
-            {
+        <div className="space-y-8 blueprint">
+          {[{
               who: "For Children",
               text: "BYDT gives children a place where what they notice, imagine, and attempt is treated as evidence of real capability — not just potential.",
             },
@@ -30,7 +29,7 @@ export default function ForPrograms() {
               text: "Camps, schools, libraries, and community spaces can offer BYDT as an enrichment experience that sends children home with something real they know about themselves.",
             },
           ].map((section, i) => (
-            <div key={i} className="border-l-4 border-gold pl-8 blueprint">
+            <div key={i} className="border-l-4 border-gold pl-8 py-1">
               <h3 className="mb-3 text-gold">{section.who}</h3>
               <p className="text-lg text-text-secondary">{section.text}</p>
             </div>
