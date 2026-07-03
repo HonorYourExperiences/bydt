@@ -1,0 +1,5 @@
+-- M1: intentionally near-empty.
+-- M3 fills this with 25 opportunities, 15 mission templates, 3 demo families,
+-- and 1 demo sponsor/trail pair for the labeling tests.
+-- Steward promotion is a manual, logged operation (see docs/ops-runbook.md);
+-- it is never seeded and never self-serve.

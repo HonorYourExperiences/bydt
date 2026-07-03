@@ -1,0 +1,15 @@
+{
+  "name": "curious-minds",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:20",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [3000, 54321, 54323, 54324],
+  "portsAttributes": {
+    "3000": { "label": "app" },
+    "54321": { "label": "supabase api" },
+    "54323": { "label": "supabase studio" },
+    "54324": { "label": "mailpit (magic-link emails land here)" }
+  },
+  "postCreateCommand": "npm install"
+}
