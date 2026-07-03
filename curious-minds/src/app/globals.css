@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BYDT Curious Minds design tokens — ported from the approved prototype.
+   Field-notebook direction: graph-paper ground, ballpoint ink,
+   school-pencil yellow as the working accent, provenance as rubber stamps. */
+
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500;700;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --paper: #FBFAF6;
+  --ink: #22303C;
+  --pencil: #F2B63B;
+  --crayon-green: #3E8E5A;
+  --crayon-blue: #3D6FA8;
+  --crayon-red: #B5432F;
+  --line: #D9D3C4;
+  --muted: #7A7466;
+}
+
+body {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(61, 111, 168, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(61, 111, 168, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.cm-display { font-family: 'Shantell Sans', cursive; }
+.cm-mono { font-family: 'Space Mono', monospace; letter-spacing: 0.02em; }
+
+/* Provenance stamps: the signature element. Name and disclosure are one unit. */
+.stamp {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 2px solid;
+  display: inline-block;
+  transform: rotate(-1.2deg);
+}
+.stamp-bydt { color: #22303C; border-color: #C88F1B; background: #FBEFCB; }
+.stamp-community { color: #2C6B45; border-color: #3E8E5A; background: #EBF5EE; }
+.stamp-free { color: #2C5A8A; border-color: #3D6FA8; background: #EAF1F8; }
+.stamp-sponsored { color: #5A5346; border-color: #8F8674; background: #F3F0E8; border-style: dashed; }
+
+input:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 3px solid var(--crayon-blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
