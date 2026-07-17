@@ -346,10 +346,13 @@ label {
     visibility: hidden;
   }
   #mission-card,
-  #mission-card * {
+  #mission-card *,
+  #career-card,
+  #career-card * {
     visibility: visible;
   }
-  #mission-card {
+  #mission-card,
+  #career-card {
     position: absolute;
     top: 0;
     left: 0;

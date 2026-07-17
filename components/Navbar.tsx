@@ -10,6 +10,7 @@ export default function Navbar() {
   const navLinks = [
     { href: "/wonderlabs", label: "WonderLabs" },
     { href: "/wonder-atlas", label: "Wonder Atlas" },
+    { href: "/career-cards", label: "Career Cards" },
     { href: "/what-we-build", label: "What We Build" },
     { href: "/for-parents-camps-presenters", label: "For Programs" },
     { href: "/about", label: "About" },

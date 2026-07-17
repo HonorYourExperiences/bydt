@@ -63,7 +63,11 @@ export default function WonderAtlasPage() {
             <Link href="/contact" className="text-gold hover:underline">
               tell us what it is
             </Link>{" "}
-            — real requests decide what we map next.
+            — real requests decide what we map next. Or explore the whole
+            working world and{" "}
+            <Link href="/career-cards" className="text-gold hover:underline">
+              make your own Career WonderCard →
+            </Link>
           </p>
         </section>
 
