@@ -5,12 +5,15 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CareerCardMaker from "@/components/CareerCardMaker";
 import {
+  ATLAS_CROSSWALK,
   BUILD_PATHS,
   CAREERS,
+  NEAR_YOU,
   SKILL_POWERS,
   careerFromSlug,
   careerSlug,
 } from "@/lib/career-cards";
+import { getDream } from "@/lib/wonder-atlas";
 
 export function generateStaticParams() {
   return CAREERS.map((c) => ({ career: careerSlug(c.code) }));
@@ -40,6 +43,8 @@ export default async function CareerPage(
     power: SKILL_POWERS[skill] ?? null,
   }));
   const buildPath = BUILD_PATHS[career.jobZone] ?? BUILD_PATHS[3];
+  const atlasDream = getDream(ATLAS_CROSSWALK[career.code] ?? "");
+  const nearYou = NEAR_YOU[career.cluster] ?? NEAR_YOU["Wide World of Work"];
 
   return (
     <>
@@ -77,6 +82,36 @@ export default async function CareerPage(
               </div>
               <p className="text-sm text-text-secondary">{buildPath.meaning}</p>
             </div>
+          </div>
+
+          {/* The bridge to the local world */}
+          <div className="card blueprint p-6 mt-6">
+            <div className="uppercase text-xs tracking-[2px] text-gold font-mono mb-3">
+              FIND IT NEAR YOU
+            </div>
+            <p className="text-sm text-text-secondary mb-4">
+              This world isn&apos;t only in far-off cities — pieces of it are
+              already in your town. With your grown-up, look for:
+            </p>
+            <ul className="space-y-2.5">
+              {nearYou.map((hint, i) => (
+                <li key={i} className="flex items-start text-sm">
+                  <span className="w-5 text-gold mr-2 shrink-0">✧</span>
+                  <span className="text-text-secondary">{hint}</span>
+                </li>
+              ))}
+            </ul>
+            {atlasDream && (
+              <p className="mt-5 pt-4 border-t border-border text-sm">
+                This dream has a full town map with quests to choose:{" "}
+                <Link
+                  href={`/wonder-atlas/${atlasDream.slug}`}
+                  className="font-semibold text-gold hover:underline"
+                >
+                  open the {atlasDream.title} map in the Wonder Atlas →
+                </Link>
+              </p>
+            )}
           </div>
         </section>
 

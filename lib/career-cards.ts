@@ -230,7 +230,115 @@ export const BUILD_PATHS: Record<number, { label: string; meaning: string }> = {
   },
 };
 
+// Career code -> Wonder Atlas dream slug. Careers with a hand-built town map
+// in the Atlas link straight to it; everything else gets cluster-level
+// near-you hints from NEAR_YOU below.
+export const ATLAS_CROSSWALK: Record<string, string> = {
+  "19-2011.00": "astronaut",
+  "17-2011.00": "astronaut",
+  "53-2011.00": "pilot",
+  "19-2021.00": "pilot",
+  "29-1131.00": "animal-doctor",
+  "29-2056.00": "animal-doctor",
+  "39-2011.00": "animal-doctor",
+  "19-1023.00": "ocean-explorer",
+  "19-1031.00": "ocean-explorer",
+  "53-5021.00": "ocean-explorer",
+  "35-1011.00": "chef",
+  "47-2031.00": "builder",
+  "17-2051.00": "builder",
+  "17-1011.00": "builder",
+  "49-3023.00": "builder",
+  "49-9081.00": "builder",
+};
+
+// Cluster -> kinds of places nearly every town has where this world shows
+// itself. Curated once per cluster, so every career in the catalog gets a
+// local layer automatically — same scaling move as the skill translations.
+// Kinds of places only, never tracked locations: the family picks the spot.
+export const NEAR_YOU: Record<string, string[]> = {
+  "Sky, Sea & Space": [
+    "The darkest safe sky your grown-up knows — a park or field away from streetlights.",
+    "A small local airfield fence, a riverbank, or a harbor — anywhere machines meet sky or water.",
+    "The library's space, flight, and weather shelves. A library card is the cheapest ticket there is.",
+  ],
+  "Animals & Nature": [
+    "An animal shelter's public hours, a feed store, or a vet clinic's waiting room with your grown-up.",
+    "The nearest creek, pond, park, or trail — wild things live closer than you think.",
+    "A nature center, a farmers market's animal folks, or the library's field guides to your own state.",
+  ],
+  "Building & Making": [
+    "A hardware store's lumber and tool aisles — builders in disguise work there.",
+    "Any bridge, construction fence, or building site you can watch from a safe public spot.",
+    "A maker space, repair shop, or the library's how-it's-made shelf.",
+  ],
+  "Helping & Healing": [
+    "A fire station's open house, a blood drive, or a first-aid class your grown-up signs up for.",
+    "Your school nurse, your own doctor's office — helpers love a kid with real questions.",
+    "The library's people-who-help shelf, or volunteering somewhere kind with your family.",
+  ],
+  "Rescue & Protection": [
+    "A fire or police station open house — most towns hold them, and they love young visitors.",
+    "A community safety day, parade, or emergency vehicle up close at a town event.",
+    "The library's shelf on brave work, and a family talk about what to do when things go wrong.",
+  ],
+  "Art & Story": [
+    "A local gallery, mural, theater, or open mic — art is hiding all over your town.",
+    "The library, which is a free museum of every story ever told.",
+    "A community class, choir, or school production — the door into making, not just watching.",
+  ],
+  "Teaching & Story": [
+    "Your own school, seen with new eyes: teachers are doing a craft, and you can study it.",
+    "The library's story hours and the librarians who run them.",
+    "A museum docent, a coach, a scout leader — notice how the good ones make you want to learn.",
+  ],
+  "Food & Growing": [
+    "A farmers market — farmers and bakers are the friendliest teachers in town.",
+    "Your own kitchen, plus a grocery store walked slowly, aisle by aisle, like a lab.",
+    "A community garden, an orchard, or the library's cookbook shelf from around the world.",
+  ],
+  "Computers & Invention": [
+    "The library — many lend laptops, run coding clubs, or host maker hours.",
+    "A school robotics or coding club, or a family friend who works with computers.",
+    "Any machine at home you're allowed to study: what does it do, and how would you make it better?",
+  ],
+  "Science & Discovery": [
+    "A science center, planetarium, or university open house within a big-day drive.",
+    "Your backyard, a puddle, the night sky — real science starts with free things.",
+    "The library's true-books shelves, and a grown-up who'll say 'let's find out' with you.",
+  ],
+  "Leading & Planning": [
+    "A town council meeting, a school board night, or any place grown-ups decide things together.",
+    "A team, club, or family project you could help organize this month.",
+    "The library's biographies of people who built things bigger than themselves.",
+  ],
+  "Business & Money": [
+    "A local shop whose owner will tell you how it really works — most will, if you ask kindly.",
+    "A lemonade stand, bake sale, or yard sale of your own, run like you mean it.",
+    "The bank with your grown-up, and the library's shelf on how money works.",
+  ],
+  "Law & Fairness": [
+    "A courthouse's public gallery with your grown-up — real decisions, made out loud.",
+    "A school debate, student council, or anywhere rules get made and argued fairly.",
+    "The library's shelf on rights, rules, and the people who fought to make things fair.",
+  ],
+  "People & Service": [
+    "Anywhere in town where someone makes your day better — notice the craft in it.",
+    "A volunteer afternoon with your family: a food pantry, a park cleanup, a visit that matters.",
+    "The library, the rec center, the front desks of your town — service is everywhere once you look.",
+  ],
+  "Wide World of Work": [
+    "The library — start at the front desk and say what you're curious about.",
+    "Someone your family knows who does work like this. Most people love being asked about their craft.",
+    "Your own town, walked slowly: this work is happening closer than you think.",
+  ],
+};
+
 export const CAREERS: CareerRecord[] = careersJson as CareerRecord[];
+
+export function careersForDream(dreamSlug: string): CareerRecord[] {
+  return CAREERS.filter((c) => ATLAS_CROSSWALK[c.code] === dreamSlug);
+}
 
 export function getCareer(code: string): CareerRecord | undefined {
   return CAREERS.find((c) => c.code === code);

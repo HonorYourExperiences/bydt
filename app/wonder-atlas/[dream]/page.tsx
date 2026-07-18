@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MissionCardBuilder from "@/components/MissionCardBuilder";
 import { DREAMS, getDream } from "@/lib/wonder-atlas";
+import { careerSlug, careersForDream } from "@/lib/career-cards";
 
 export function generateStaticParams() {
   return DREAMS.map((dream) => ({ dream: dream.slug }));
@@ -28,6 +29,8 @@ export default async function DreamPage(
   const { dream: slug } = await props.params;
   const dream = getDream(slug);
   if (!dream) notFound();
+
+  const officialCareers = careersForDream(dream.slug);
 
   return (
     <>
@@ -118,6 +121,31 @@ export default async function DreamPage(
               </p>
             </div>
             <MissionCardBuilder dream={dream} />
+
+            {officialCareers.length > 0 && (
+              <div className="mt-14 pt-8 border-t border-border print:hidden">
+                <div className="uppercase text-xs tracking-[2px] text-gold font-mono mb-3">
+                  THE OFFICIAL VERSIONS OF THIS DREAM
+                </div>
+                <p className="text-text-secondary text-sm mb-5 max-w-2xl">
+                  Grown-ups have official names for this dream — real careers,
+                  each with its own entry in the government&apos;s job
+                  database. Pick one and make a Career WonderCard in your own
+                  words:
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {officialCareers.map((c) => (
+                    <Link
+                      key={c.code}
+                      href={`/career-cards/${careerSlug(c.code)}`}
+                      className="btn btn-ghost text-sm"
+                    >
+                      {c.title} →
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </main>
