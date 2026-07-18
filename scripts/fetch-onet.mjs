@@ -7,11 +7,17 @@
 // makes zero runtime network calls, so no key and no child data ever
 // touch the browser.
 //
-// Credentials (either style, via environment variables):
-//   ONET_API_KEY                    sent as X-API-Key header
-//   ONET_USERNAME + ONET_PASSWORD   sent as HTTP Basic auth
+// API conventions follow the official samples at
+// https://github.com/onetcenter/web-services-v2-samples (nodejs client):
+// base https://api-v2.onetcenter.org/, X-API-Key header, paths like
+// 'about' and 'online/search', JSON errors carried in an `error` property
+// (including on HTTP 422).
+//
+// Credentials (via environment variables):
+//   ONET_API_KEY    sent as X-API-Key header (register at
+//                   https://services.onetcenter.org/)
 // Optional:
-//   ONET_BASE_URL   default https://services.onetcenter.org/ws
+//   ONET_BASE_URL   default https://api-v2.onetcenter.org
 //   ONET_LIMIT      cap the number of occupations (useful for a test run)
 //
 // Usage: npm run fetch-onet
@@ -21,33 +27,36 @@
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 
-const BASE = (process.env.ONET_BASE_URL || "https://services.onetcenter.org/ws").replace(/\/$/, "");
+const BASE = (process.env.ONET_BASE_URL || "https://api-v2.onetcenter.org").replace(/\/$/, "");
 const OUT = path.resolve(import.meta.dirname, "../data/onet/careers.json");
 const LIMIT = process.env.ONET_LIMIT ? parseInt(process.env.ONET_LIMIT, 10) : Infinity;
 
-const headers = { Accept: "application/json", "User-Agent": "bydt-career-wondercards" };
-if (process.env.ONET_API_KEY) {
-  headers["X-API-Key"] = process.env.ONET_API_KEY;
-} else if (process.env.ONET_USERNAME && process.env.ONET_PASSWORD) {
-  headers.Authorization =
-    "Basic " + Buffer.from(`${process.env.ONET_USERNAME}:${process.env.ONET_PASSWORD}`).toString("base64");
-} else {
+if (!process.env.ONET_API_KEY) {
   console.error(
     "No O*NET credentials found.\n" +
-      "Set ONET_API_KEY, or ONET_USERNAME and ONET_PASSWORD, then re-run.\n" +
+      "Set ONET_API_KEY, then re-run.\n" +
       "Register at https://services.onetcenter.org/"
   );
   process.exit(1);
 }
+const headers = {
+  Accept: "application/json",
+  "User-Agent": "bydt-career-wondercards",
+  "X-API-Key": process.env.ONET_API_KEY,
+};
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function get(pathname, params = {}) {
-  const url = new URL(BASE + pathname);
+  const url = new URL(`${BASE}/${pathname.replace(/^\//, "")}`);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, String(v));
   for (let attempt = 1; ; attempt++) {
     const res = await fetch(url, { headers });
-    if (res.ok) return res.json();
+    if (res.ok || res.status === 422) {
+      const body = await res.json().catch(() => null);
+      if (body && !body.error) return body;
+      throw new Error(`${body?.error ?? `unparseable response`} for ${url}`);
+    }
     if ((res.status === 429 || res.status >= 500) && attempt < 4) {
       await sleep(attempt * 2000);
       continue;
@@ -88,7 +97,7 @@ async function listOccupations() {
   let start = 1;
   const pageSize = 100;
   for (;;) {
-    const page = await get("/online/occupations", { start, end: start + pageSize - 1 });
+    const page = await get("online/occupations", { start, end: start + pageSize - 1 });
     const rows = page.occupation || [];
     all.push(...rows.map((o) => ({ code: o.code, title: o.title })));
     if (all.length >= Math.min(page.total ?? all.length, LIMIT) || rows.length === 0) break;
@@ -100,12 +109,12 @@ async function listOccupations() {
 
 async function fetchCareer({ code, title }) {
   const [report, skills] = await Promise.all([
-    get(`/online/occupations/${code}`),
-    get(`/online/occupations/${code}/summary/skills`).catch(() => null),
+    get(`online/occupations/${code}`),
+    get(`online/occupations/${code}/summary/skills`).catch(() => null),
   ]);
   const jobZone =
     report.job_zone ??
-    (await get(`/online/occupations/${code}/summary/job_zone`).catch(() => null))?.job_zone?.value ??
+    (await get(`online/occupations/${code}/summary/job_zone`).catch(() => null))?.job_zone?.value ??
     3;
   const skillNames = (skills?.element || []).map((e) => e.name).slice(0, 6);
   return {
@@ -117,6 +126,11 @@ async function fetchCareer({ code, title }) {
     cluster: CLUSTERS[code.slice(0, 2)] || "Wide World of Work",
   };
 }
+
+// Fail fast on bad credentials before the long crawl (same check the
+// official samples run first).
+const about = await get("about");
+console.log(`Connected to O*NET Web Services, API version ${about.api_version ?? "unknown"}`);
 
 const occupations = await listOccupations();
 console.log(`Fetching ${occupations.length} occupations from ${BASE} ...`);
