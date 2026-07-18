@@ -160,6 +160,48 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* THE CONNECTOR — the live digital experiences: dream → real world → proof */}
+      <section className="section bg-surface border-y border-border">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="uppercase tracking-[3px] text-xs text-gold font-mono mb-2">THE CONNECTOR · LIVE NOW</div>
+            <h2>Your dream is closer than it looks.</h2>
+            <p className="max-w-2xl mx-auto text-text-secondary mt-4">
+              Two doors into the same loop: find the dream, see what it really is,
+              find it near you, and print the proof you started.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <Link href="/wonder-atlas" className="card blueprint p-9 flex flex-col group">
+              <div className="text-gold text-3xl mb-3">✧</div>
+              <h3 className="mb-3 group-hover:text-gold transition-colors">Wonder Atlas</h3>
+              <p className="text-text-secondary flex-1">
+                Pick a dream and see it mapped onto your own town — free quests for
+                tonight, places almost every town has, and one big day worth asking
+                for. Ends in a printable mission card your grown-up signs.
+              </p>
+              <span className="mt-6 text-sm font-semibold text-gold">Open the Atlas →</span>
+            </Link>
+            <Link href="/career-cards" className="card blueprint p-9 flex flex-col group">
+              <div className="text-gold text-3xl mb-3">◈</div>
+              <h3 className="mb-3 group-hover:text-gold transition-colors">Career WonderCards</h3>
+              <p className="text-text-secondary flex-1">
+                Search real careers from the U.S. Department of Labor&apos;s own
+                database, translate one into your words, pick the powers to start
+                training tonight — and print a card you made yourself.
+              </p>
+              <span className="mt-6 text-sm font-semibold text-gold">Make a card →</span>
+            </Link>
+          </div>
+
+          <p className="text-center mt-8 text-sm text-text-secondary evidence">
+            Safe by architecture: no accounts, no tracking, nothing collected — and
+            every plan routes through a grown-up&apos;s yes.
+          </p>
+        </div>
+      </section>
+
       {/* THE VISUAL LANGUAGE — Proof objects and brand foundation (MVP: real assets from the BYDT Visual Operating System) */}
       <section className="section bg-surface border-y border-border blueprint">
         <div className="max-w-6xl mx-auto px-6">

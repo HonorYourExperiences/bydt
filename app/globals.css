@@ -340,11 +340,35 @@ label {
   border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><path d="M0 0 L100 0 L100 100 L0 100 Z" fill="none" stroke="%23BFA16B" stroke-width="2" stroke-dasharray="4 2"/></svg>') 1;
 }
 
+/* Wonder Mission Card print mode — the card is the only thing that leaves the screen */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #mission-card,
+  #mission-card *,
+  #career-card,
+  #career-card * {
+    visibility: visible;
+  }
+  #mission-card,
+  #career-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    border: 1px solid var(--color-navy);
+  }
+}
+
 /* Proof artifact cards — stronger signal for Canva proof objects */
 .proof-artifact {
   position: relative;
   border: 1px solid var(--color-border);
   background: #FFFEF9;
+  /* Fill-in blanks are long underscore runs; let them wrap on small screens */
+  overflow-wrap: anywhere;
 }
 .proof-artifact::before {
   content: '';

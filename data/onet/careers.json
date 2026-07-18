@@ -1,0 +1,242 @@
+[
+  {
+    "code": "19-2011.00",
+    "title": "Astronomer",
+    "description": "Observe, research, and interpret astronomical phenomena to increase basic knowledge or apply such information to practical problems.",
+    "jobZone": 5,
+    "skills": ["Science", "Mathematics", "Critical Thinking", "Reading Comprehension", "Complex Problem Solving", "Writing"],
+    "cluster": "Sky, Sea & Space"
+  },
+  {
+    "code": "17-2011.00",
+    "title": "Aerospace Engineer",
+    "description": "Perform engineering duties in designing, constructing, and testing aircraft, missiles, and spacecraft. May conduct basic and applied research to evaluate adaptability of materials and equipment to aircraft design and manufacture.",
+    "jobZone": 4,
+    "skills": ["Mathematics", "Science", "Complex Problem Solving", "Critical Thinking", "Operations Analysis", "Quality Control Analysis"],
+    "cluster": "Sky, Sea & Space"
+  },
+  {
+    "code": "53-2011.00",
+    "title": "Airline Pilot",
+    "description": "Pilot and navigate the flight of fixed-wing aircraft, usually on scheduled air carrier routes, for the transport of passengers and cargo.",
+    "jobZone": 4,
+    "skills": ["Operation and Control", "Operations Monitoring", "Judgment and Decision Making", "Coordination", "Monitoring", "Critical Thinking"],
+    "cluster": "Sky, Sea & Space"
+  },
+  {
+    "code": "19-2021.00",
+    "title": "Meteorologist (Atmospheric Scientist)",
+    "description": "Investigate atmospheric phenomena and interpret meteorological data, gathered by surface and air stations, satellites, and radar, to prepare reports and forecasts for public and other uses.",
+    "jobZone": 4,
+    "skills": ["Science", "Mathematics", "Critical Thinking", "Reading Comprehension", "Speaking", "Systems Analysis"],
+    "cluster": "Sky, Sea & Space"
+  },
+  {
+    "code": "53-5021.00",
+    "title": "Ship Captain",
+    "description": "Command or supervise operations of ships and water vessels, such as tugboats and ferryboats, that travel into and out of harbors, straits, sounds, or on rivers, lakes, and bays.",
+    "jobZone": 3,
+    "skills": ["Operation and Control", "Coordination", "Judgment and Decision Making", "Management of Personnel Resources", "Operations Monitoring", "Monitoring"],
+    "cluster": "Sky, Sea & Space"
+  },
+  {
+    "code": "29-1131.00",
+    "title": "Veterinarian",
+    "description": "Diagnose, treat, or research diseases and injuries of animals.",
+    "jobZone": 5,
+    "skills": ["Science", "Critical Thinking", "Judgment and Decision Making", "Reading Comprehension", "Complex Problem Solving", "Social Perceptiveness"],
+    "cluster": "Animals & Nature"
+  },
+  {
+    "code": "29-2056.00",
+    "title": "Veterinary Technician",
+    "description": "Perform medical tests in a laboratory environment for use in the treatment and diagnosis of diseases in animals. Prepare vaccines and serums for prevention of diseases and assist veterinarians during examinations and procedures.",
+    "jobZone": 3,
+    "skills": ["Monitoring", "Active Listening", "Science", "Service Orientation", "Operations Monitoring", "Quality Control Analysis"],
+    "cluster": "Animals & Nature"
+  },
+  {
+    "code": "19-1023.00",
+    "title": "Zoologist / Wildlife Biologist",
+    "description": "Study the origins, behavior, diseases, genetics, and life processes of animals and wildlife. May specialize in wildlife research and management. May collect and analyze biological data to determine the environmental effects of present and potential use of land and water habitats.",
+    "jobZone": 4,
+    "skills": ["Science", "Reading Comprehension", "Critical Thinking", "Writing", "Monitoring", "Mathematics"],
+    "cluster": "Animals & Nature"
+  },
+  {
+    "code": "39-2011.00",
+    "title": "Animal Trainer",
+    "description": "Train animals for riding, harness, security, performance, or obedience, or for assisting persons with disabilities.",
+    "jobZone": 2,
+    "skills": ["Monitoring", "Social Perceptiveness", "Instructing", "Learning Strategies", "Critical Thinking", "Time Management"],
+    "cluster": "Animals & Nature"
+  },
+  {
+    "code": "19-1031.00",
+    "title": "Conservation Scientist",
+    "description": "Manage, improve, and protect natural resources to maximize their use without damaging the environment.",
+    "jobZone": 4,
+    "skills": ["Science", "Critical Thinking", "Systems Analysis", "Judgment and Decision Making", "Speaking", "Writing"],
+    "cluster": "Animals & Nature"
+  },
+  {
+    "code": "47-2031.00",
+    "title": "Carpenter",
+    "description": "Construct, erect, install, or repair structures and fixtures made of wood and comparable materials, such as concrete forms, building frameworks, and window and door frames.",
+    "jobZone": 2,
+    "skills": ["Equipment Selection", "Mathematics", "Quality Control Analysis", "Critical Thinking", "Coordination", "Repairing"],
+    "cluster": "Building & Making"
+  },
+  {
+    "code": "17-2051.00",
+    "title": "Civil Engineer",
+    "description": "Perform engineering duties in planning, designing, and overseeing construction and maintenance of building structures and facilities, such as roads, railroads, airports, bridges, harbors, channels, dams, irrigation projects, pipelines, power plants, and water and sewage systems.",
+    "jobZone": 4,
+    "skills": ["Mathematics", "Complex Problem Solving", "Critical Thinking", "Operations Analysis", "Judgment and Decision Making", "Systems Evaluation"],
+    "cluster": "Building & Making"
+  },
+  {
+    "code": "17-1011.00",
+    "title": "Architect",
+    "description": "Plan and design structures, such as private residences, office buildings, theaters, factories, and other structural property.",
+    "jobZone": 4,
+    "skills": ["Operations Analysis", "Critical Thinking", "Complex Problem Solving", "Judgment and Decision Making", "Speaking", "Writing"],
+    "cluster": "Building & Making"
+  },
+  {
+    "code": "49-3023.00",
+    "title": "Auto Mechanic",
+    "description": "Diagnose, adjust, repair, or overhaul automotive vehicles.",
+    "jobZone": 3,
+    "skills": ["Troubleshooting", "Repairing", "Equipment Maintenance", "Operations Monitoring", "Quality Control Analysis", "Critical Thinking"],
+    "cluster": "Building & Making"
+  },
+  {
+    "code": "49-9081.00",
+    "title": "Wind Turbine Technician",
+    "description": "Inspect, diagnose, adjust, or repair wind turbines. Perform maintenance on wind turbine equipment including resolving electrical, mechanical, and hydraulic malfunctions.",
+    "jobZone": 3,
+    "skills": ["Troubleshooting", "Repairing", "Equipment Maintenance", "Operations Monitoring", "Quality Control Analysis", "Monitoring"],
+    "cluster": "Building & Making"
+  },
+  {
+    "code": "33-2011.00",
+    "title": "Firefighter",
+    "description": "Control and extinguish fires or respond to emergency situations where life, property, or the environment is at risk.",
+    "jobZone": 3,
+    "skills": ["Coordination", "Judgment and Decision Making", "Monitoring", "Service Orientation", "Operation and Control", "Critical Thinking"],
+    "cluster": "Helping & Healing"
+  },
+  {
+    "code": "29-2043.00",
+    "title": "Paramedic",
+    "description": "Administer basic or advanced emergency medical care and assess injuries and illnesses. May administer medication intravenously, use equipment such as EKGs, or administer advanced life support to sick or injured individuals.",
+    "jobZone": 3,
+    "skills": ["Judgment and Decision Making", "Monitoring", "Coordination", "Service Orientation", "Social Perceptiveness", "Critical Thinking"],
+    "cluster": "Helping & Healing"
+  },
+  {
+    "code": "29-1141.00",
+    "title": "Registered Nurse",
+    "description": "Assess patient health problems and needs, develop and implement nursing care plans, and maintain medical records. Administer nursing care to ill, injured, convalescent, or disabled patients.",
+    "jobZone": 4,
+    "skills": ["Social Perceptiveness", "Active Listening", "Monitoring", "Service Orientation", "Judgment and Decision Making", "Coordination"],
+    "cluster": "Helping & Healing"
+  },
+  {
+    "code": "29-1215.00",
+    "title": "Doctor (Family Medicine Physician)",
+    "description": "Diagnose, treat, and provide preventive care to individuals and families across the lifespan. May refer patients to specialists when needed for further diagnosis or treatment.",
+    "jobZone": 5,
+    "skills": ["Active Listening", "Critical Thinking", "Judgment and Decision Making", "Science", "Social Perceptiveness", "Complex Problem Solving"],
+    "cluster": "Helping & Healing"
+  },
+  {
+    "code": "25-2021.00",
+    "title": "Elementary School Teacher",
+    "description": "Teach academic and social skills to students at the elementary school level.",
+    "jobZone": 4,
+    "skills": ["Instructing", "Learning Strategies", "Speaking", "Social Perceptiveness", "Monitoring", "Time Management"],
+    "cluster": "Helping & Healing"
+  },
+  {
+    "code": "25-4022.00",
+    "title": "Librarian",
+    "description": "Administer and maintain libraries or collections of information, for public or private access. May assist patrons in locating and using library materials and resources.",
+    "jobZone": 5,
+    "skills": ["Reading Comprehension", "Service Orientation", "Active Listening", "Instructing", "Speaking", "Learning Strategies"],
+    "cluster": "Helping & Healing"
+  },
+  {
+    "code": "27-2011.00",
+    "title": "Actor",
+    "description": "Play parts in stage, television, radio, video, or film productions, or other settings for entertainment, information, or instruction. Interpret serious or comic role by speech, gesture, and body movement.",
+    "jobZone": 3,
+    "skills": ["Speaking", "Reading Comprehension", "Social Perceptiveness", "Active Listening", "Coordination", "Learning Strategies"],
+    "cluster": "Art & Story"
+  },
+  {
+    "code": "27-1013.00",
+    "title": "Artist (Painter / Sculptor / Illustrator)",
+    "description": "Create original artwork using any of a wide variety of media and techniques.",
+    "jobZone": 3,
+    "skills": ["Critical Thinking", "Active Learning", "Operations Analysis", "Judgment and Decision Making", "Time Management", "Persuasion"],
+    "cluster": "Art & Story"
+  },
+  {
+    "code": "27-4021.00",
+    "title": "Photographer",
+    "description": "Photograph people, landscapes, merchandise, or other subjects. May use lighting equipment to enhance a subject's appearance. May use editing software to produce finished images and prints.",
+    "jobZone": 3,
+    "skills": ["Critical Thinking", "Judgment and Decision Making", "Social Perceptiveness", "Equipment Selection", "Time Management", "Quality Control Analysis"],
+    "cluster": "Art & Story"
+  },
+  {
+    "code": "27-2042.00",
+    "title": "Musician / Singer",
+    "description": "Play one or more musical instruments or sing. May perform on stage, for broadcasting, or for sound or video recording.",
+    "jobZone": 3,
+    "skills": ["Coordination", "Learning Strategies", "Monitoring", "Active Learning", "Social Perceptiveness", "Time Management"],
+    "cluster": "Art & Story"
+  },
+  {
+    "code": "27-1024.00",
+    "title": "Graphic Designer",
+    "description": "Design or create graphics to meet specific commercial or promotional needs, such as packaging, displays, or logos. May use a variety of mediums to achieve artistic or decorative effects.",
+    "jobZone": 4,
+    "skills": ["Critical Thinking", "Operations Analysis", "Active Listening", "Judgment and Decision Making", "Time Management", "Persuasion"],
+    "cluster": "Art & Story"
+  },
+  {
+    "code": "27-3023.00",
+    "title": "Journalist / Reporter",
+    "description": "Narrate or write news stories, reviews, or commentary for print, broadcast, or other communications media such as newspapers, magazines, radio, or television. May collect and analyze information through interview, investigation, or observation.",
+    "jobZone": 4,
+    "skills": ["Writing", "Active Listening", "Critical Thinking", "Speaking", "Reading Comprehension", "Social Perceptiveness"],
+    "cluster": "Art & Story"
+  },
+  {
+    "code": "35-1011.00",
+    "title": "Chef",
+    "description": "Direct and may participate in the preparation, seasoning, and cooking of salads, soups, fish, meats, vegetables, desserts, or other foods. May plan and price menu items, order supplies, and keep records and accounts.",
+    "jobZone": 3,
+    "skills": ["Coordination", "Time Management", "Management of Material Resources", "Monitoring", "Quality Control Analysis", "Management of Personnel Resources"],
+    "cluster": "Food & Growing"
+  },
+  {
+    "code": "11-9013.00",
+    "title": "Farmer / Rancher",
+    "description": "Plan, direct, or coordinate the management or operation of farms, ranches, greenhouses, aquacultural operations, nurseries, timber tracts, or other agricultural establishments.",
+    "jobZone": 3,
+    "skills": ["Judgment and Decision Making", "Management of Material Resources", "Monitoring", "Critical Thinking", "Systems Analysis", "Repairing"],
+    "cluster": "Food & Growing"
+  },
+  {
+    "code": "15-1252.00",
+    "title": "Software Developer",
+    "description": "Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and techniques of computer science, engineering, and mathematical analysis.",
+    "jobZone": 4,
+    "skills": ["Programming", "Complex Problem Solving", "Critical Thinking", "Systems Analysis", "Troubleshooting", "Active Learning"],
+    "cluster": "Computers & Invention"
+  }
+]
